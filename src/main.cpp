@@ -1,5 +1,5 @@
 #include <iostream>
-#include <glad/glad.h>
+#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
 using namespace std;
@@ -27,4 +27,13 @@ int main() {
 
     glfwMakeContextCurrent(window);
     printf("window creation succeeded?????\n");
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        cout << "GLAD init failed" << endl;
+        exit(-1);
+    }
+    while(!glfwWindowShouldClose(window)) {
+        
+    }
 }
