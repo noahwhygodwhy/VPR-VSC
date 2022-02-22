@@ -21,9 +21,14 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_executable(VPR-VSC src/main.cpp ${SOURCES} ${HEADERS})
  
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/../)
 
 add_subdirectory(external/GLFW)
 target_link_libraries(VPR-VSC glfw)
+
+
+add_subdirectory(external/GLM)
+target_link_libraries(VPR-VSC glm)
 
 find_package(OpenGL REQUIRED)
 target_link_libraries(VPR-VSC OpenGL::GL)
